@@ -1,7 +1,23 @@
+  :root {
+    --color-primario: #FF6F91;
+    --color-secundario: #555555;
+    --color-fondo1: #74ebd5;
+    --color-fondo2: #ACB6E5;
+    --color-texto: #222222;
+
+    --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    --size-h1: 4rem;
+    --size-h2: 1.8rem;
+
+    --border-radius: 15px;
+    --box-shadow-h1: 0 4px 10px rgba(255,111,145,0.5);
+    --box-shadow-img: 0 6px 15px rgba(0,0,0,0.2);
+  }
   body {
-    background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #222;
+    background: linear-gradient(135deg, var(--color-fondo1) 0%, var(--color-fondo2) 100%);
+    font-family: var(--font-family-base);
+    color: var(--color-texto);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,29 +27,29 @@
     text-align: center;
   }
   h1 {
-    font-size: 4rem;
-    background: #FF6F91;
+    font-size: var(--size-h1);
+    background: var(--color-primario);
     color: white;
     padding: 0.5em 1.2em;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(255,111,145,0.5);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-h1);
     letter-spacing: 0.15em;
     margin-bottom: 0.3em;
     text-transform: uppercase;
     font-weight: 900;
   }
   h2 {
-    font-size: 1.8rem;
-    color: #555;
+    font-size: var(--size-h2);
+    color: var(--color-secundario);
     font-style: italic;
     margin-bottom: 2em;
     text-shadow: 1px 1px 2px #bbb;
   }
   img {
-    width: 220px;
+    width: 520px;
     height: auto;
     border-radius: 20px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    box-shadow: var(--box-shadow-img);
     transition: transform 0.3s ease;
   }
 
