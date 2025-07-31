@@ -1,7 +1,6 @@
 header {
-    padding: 0.5rem;
-    height: 5rem;
-    background-color: aqua;
+    height: 100%;
+    border-bottom: 2px solid black;
     display: grid;
     grid-template-columns: 1fr 8rem 5rem;
     align-items: center;
