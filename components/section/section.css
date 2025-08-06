@@ -7,7 +7,7 @@ section {
     padding: 1%;
 }
 
-.section1 {
+.seccion-1 {
     width: 100%;
     height: 100%;
     border: 1px solid black;
@@ -20,4 +20,66 @@ section {
     border: 1px solid black;
     border-radius: 0.2rem;
     background-color: rgba(60, 179, 114, 0.150);
+}
+
+.tareas {
+    width: 100%;
+    margin-top: 1%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+.tarea {
+    margin: auto;
+    background-color: mediumaquamarine;
+    width: 95%;
+    height: 3rem;
+    display: grid;
+    grid-template-columns: 2rem 20rem 5rem 5rem 5rem 4rem 8rem;
+    grid-template-rows: 3rem;
+    gap: 1rem;
+    align-items: center;
+    border-radius: 0.5rem;
+}
+.numTarea {
+    width: 100%;
+    height: 2rem;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-left: 0.2rem;
+}
+.tituloTarea {
+    width: 98%;
+    margin-left: 0.4rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+.estadoTarea {
+    width: 100%;
+    height: 3rem;
+    background-color: green;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background: radial-gradient(circle, #3fe848, #3fe84854, #2275a500);
+}
+.fechaAsTarea {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fechaEnTarea {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
