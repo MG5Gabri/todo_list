@@ -1,22 +1,24 @@
 section {
     width: 98%;
-    height: 96%;
+    margin-bottom: 2rem;
     display: grid;
     grid-template-columns: 70% 1fr;
     gap: 1%;
     padding: 1%;
 }
 
+
 .seccion-1 {
     width: 100%;
     height: 100%;
+    padding-bottom: 2%;
     border: 1px solid black;
     border-radius: 0.2rem;
     background-color: rgba(128, 128, 128, 0.10);
 }
 .section2 {
     width: 100%;
-    height: 100%;
+    height: 98%;
     border: 1px solid black;
     border-radius: 0.2rem;
     background-color: rgba(60, 179, 114, 0.150);
@@ -24,6 +26,7 @@ section {
 
 .tareas {
     width: 100%;
+    height: auto;
     margin-top: 1%;
     display: grid;
     grid-template-columns: 1fr;
@@ -33,9 +36,9 @@ section {
     margin: auto;
     background-color: mediumaquamarine;
     width: 95%;
-    height: 3rem;
+    height: 100%;
     display: grid;
-    grid-template-columns: 2rem 20rem 5rem 5rem 5rem 4rem 8rem;
+    grid-template-columns: 4% 30% 10% 10% 10% 8% 12%;
     grid-template-rows: 3rem;
     gap: 1rem;
     align-items: center;
@@ -82,4 +85,84 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* --- Versión para pantallas pequeñas (teléfono) --- */
+@media (max-width: 768px) {
+    section {
+        width: 98%;
+        margin-bottom: 2rem;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-row: 1fr 30%;
+        gap: 1%;
+        padding: 1%;
+    }
+    .tarea {
+        grid-template-columns: 1fr 1fr;   /* 2 columnas */
+        grid-template-rows: auto auto auto; /* varias filas automáticas */
+        gap: 0.5rem;
+    }
+
+    .numTarea {
+        grid-column: 1 / 2;  /* primera columna */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .tituloTarea {
+        grid-column: 2 / 3; /* segunda columna */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .estadoTarea {
+        grid-column: 1 / 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .fechaAsTarea {
+        grid-column: 2 / 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .fechaEnTarea {
+        grid-column: 1 / 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .integrantes {
+        grid-column: 2 / 3; /* ocupa ambas columnas */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    button {
+        grid-column: 1 / 3; /* el botón ocupa toda la fila */
+        width: 8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .tarea {
+        grid-template-columns: repeat(3, 1fr);  /* 4 columnas */
+        grid-template-rows: auto auto; /* 2 filas */
+        gap: 0.8rem;
+    }
+
+    .numTarea { grid-column: 1 / 2; }
+    .tituloTarea { grid-column: 2 / 4; } /* ocupa varias columnas */
+    .estadoTarea { grid-column: 1 / 2; grid-row: 2; }
+    .fechaAsTarea { grid-column: 2 / 3; grid-row: 2; }
+    .fechaEnTarea { grid-column: 3 / 4; grid-row: 2; }
+    .integrantes { grid-column: 1 / 3; grid-row: 3; margin: auto;}
+    button { grid-column: 3 / 4; justify-self: end; margin: auto; display: flex;
+}
 }

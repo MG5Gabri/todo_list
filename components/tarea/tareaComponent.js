@@ -30,16 +30,11 @@ export function tarea(tareaObj, seccionInformacion) {
   divTarea.appendChild(fechaEn);
 
 
-  let divIntegrantes = document.createElement('div');
-  divIntegrantes.className = "integrantes";
-
-  tareaObj.integrantes.forEach(icono => {
-    let integrante = document.createElement('span');
-    integrante.textContent = icono;
-    divIntegrantes.appendChild(integrante);
-  });
-
-  divTarea.appendChild(divIntegrantes);
+  let integrantes = document.createElement('div');
+  integrantes.className = "integrantes";
+  integrantes.textContent = tareaObj.integrantes.join(", ");
+  divTarea.appendChild(integrantes);
+  
 
   let botonDescripcion = document.createElement('button');
   botonDescripcion.textContent = "Descripción";

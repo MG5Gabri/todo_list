@@ -4,13 +4,16 @@ import { lgSection } from "../components/section/section.js";
 
 let DOM = document.querySelector("#root")
 
-function cargarDashboard(DOM) {
-
+async function cargarDashboard(DOM) {
     DOM.appendChild(lgHeader());
-    DOM.appendChild(lgSection())
-    DOM.appendChild(lgFooter())
+    
+    // 👇 Esperar a que se resuelva la Promesa
+    const section = await lgSection();
+    DOM.appendChild(section);
 
-    return DOM
+    DOM.appendChild(lgFooter());
+    return DOM;
 }
 
-cargarDashboard(DOM)
+cargarDashboard(DOM);
+

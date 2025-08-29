@@ -20,13 +20,7 @@ export function informacion(tarea) {
   
     let divIntegrantes = document.createElement('div');
     divIntegrantes.className = "integrantes-detalle";
-  
-    tarea.integrantes.forEach(icono => {
-      let integrante = document.createElement('span');
-      integrante.textContent = icono;
-      divIntegrantes.appendChild(integrante);
-    });
-  
+    divIntegrantes.textContent = tarea.integrantes.join(", ");
     div.appendChild(divIntegrantes);
   
     return div;

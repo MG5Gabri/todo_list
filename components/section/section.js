@@ -1,30 +1,51 @@
 import { tareas } from "../tareas/tareasComponent.js";
-import { tareasDb } from "../../data/tareasDb.js";
 
-function lgSection() {
-    let section = document.createElement('section')
-    section.className = "section"
+async function lgSection() {
+  const section = document.createElement('section');
+  section.className = "section";
 
-      // Sección principal
-    let seccion1 = document.createElement('div');
-    seccion1.className = "seccion-1";
+  const seccion1 = document.createElement('div');
+  seccion1.className = "seccion-1";
 
+  // Panel de información inicial
+  const seccionInformacion = document.createElement('div');
+  seccionInformacion.className = "div-informacion";
+  seccionInformacion.textContent = "Haz clic en una tarea para ver su descripción.";
 
-    // Contenedor para la información detallada de una tarea
-    let seccionInformacion = document.createElement('div');
-    seccionInformacion.className = "div-informacion";
+  try {
+    const resp = await fetch("https://backend-todo-list-2-mzxe.onrender.com/tareas");
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const datos = await resp.json();
 
-    // Lista de tareas
-    seccion1.appendChild(tareas(tareasDb, seccionInformacion));
+    // Adaptar datos al formato que esperan tus componentes
+    const tareasAdaptadas = datos.map(t => ({
+      indice: t.id,
+      titulo: t.titulo,
+      descripcion: t.descripcion,
+      estado: t.estado,
+      fechaAs: t.fecha_asignacion,
+      fechaEn: t.fecha_entrega,
+      integrantes: typeof t.integrantes === "string"
+        ? t.integrantes.split(",").map(i => i.trim())
+        : []
+    }));
 
-    // Panel de información (vacio al inicio o con tareasDb[0])
-    seccionInformacion.appendChild(document.createTextNode("Haz clic en una tarea para ver su descripción."));
-    seccion1.appendChild(seccionInformacion);
+    // Usar tu componente tareas()
+    seccion1.appendChild(tareas(tareasAdaptadas, seccionInformacion));
 
-    section.appendChild(seccion1)
-    section.appendChild(seccionInformacion)
-    
-    return section
+  } catch (err) {
+    console.error("Error cargando tareas:", err);
+    const p = document.createElement('p');
+    p.textContent = "No se pudieron cargar las tareas.";
+    seccion1.appendChild(p);
+  }
+
+  seccion1.appendChild(seccionInformacion);
+
+  section.appendChild(seccion1);
+  section.appendChild(seccionInformacion)
+
+  return section;
 }
 
-export { lgSection }
+export { lgSection };
