@@ -24,5 +24,5 @@ export function informacion(tarea) {
     div.appendChild(divIntegrantes);
   
     return div;
-  }
+}
   

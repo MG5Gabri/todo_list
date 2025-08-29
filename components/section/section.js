@@ -1,4 +1,5 @@
 import { tareas } from "../tareas/tareasComponent.js";
+import { crearBotonAgregar } from '../btnagregarComponent/btnagregarComponent.js';
 
 async function lgSection() {
   const section = document.createElement('section');
@@ -6,11 +7,15 @@ async function lgSection() {
 
   const seccion1 = document.createElement('div');
   seccion1.className = "seccion-1";
+  
+  let botonAgregar = crearBotonAgregar();
+  seccion1.appendChild(botonAgregar);
 
   // Panel de información inicial
   const seccionInformacion = document.createElement('div');
   seccionInformacion.className = "div-informacion";
   seccionInformacion.textContent = "Haz clic en una tarea para ver su descripción.";
+
 
   try {
     const resp = await fetch("https://backend-todo-list-2-mzxe.onrender.com/tareas");

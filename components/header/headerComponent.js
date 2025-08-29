@@ -18,8 +18,17 @@ function lgHeader() {
 
     let numContador = document.createElement('div')
     numContador.className = "numContadorH"
-    numContador.innerText = "5"
     divContador.appendChild(numContador)
+
+    // Hacemos fetch para  la cantidad real de tareas
+    fetch("https://backend-todo-list-2-mzxe.onrender.com/tareas")
+        .then(res => res.json())
+        .then(tareas => {
+            numContador.innerText = tareas.length; 
+        })
+        .catch(err => {
+            console.error("Error al obtener tareas:", err);
+        });
 
     let divPerfil = document.createElement('div')
     divPerfil.className = "divPerfil"
